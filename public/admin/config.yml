@@ -22,8 +22,10 @@ collections:
       - {label: "Title", name: "title", widget: "string", required: true}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Date", name: "date", widget: "datetime", required: true}
+      - {label: "Modified", name: "modified", widget: "datetime", required: true}
       - {label: "Affected", widget: "select", name: "affectedsystems", min: 1, multiple: true, required: true, options: [{label: "Web Services", value: "web"}, {label: "Discord Services", value: "discord"}]}
-      - {label: "Severity", name: "severity", widget: "select", min: 1, multiple: false, required: true, options: [{label: "Under Maintenance", name: "under-maintenance"}, {label: "Major Outage", name: "major-outage"}, {label: "Partial Outage", name: "partial-outage"}, {label: "Degraded Performance", name: "degraded-performance"}]}
-      - {label: "Scheduled For", name: "scheduled", widget: "datetime"}
+      - {label: "Severity", name: "severity", widget: "select",  required: true, options: ["major-outage", "degraded-performance", "partial-outage", "under-maintenance"]}
+      - {label: "Scheduled For", name: "scheduled", widget: "datetime", default:  ""}
       - {label: "Scheduled Duration", name: "duration", widget: "number", hint: "Minutes"}
       - {label: "Resolved", name: "resolved", widget: "boolean"}
+      - {label: "Body", name: "body", widget: "markdown", required: true}
