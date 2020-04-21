@@ -1,6 +1,6 @@
 backend:
-  name: github
-  repo: greatgodapollo/status
+  name: git-gateway
+  branch: master # Branch to update (optional; defaults to master)
 
 slug:
   encoding: "ascii"
