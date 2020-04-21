@@ -1,0 +1,16 @@
+{
+  "title": "Brett Bender",
+  "description": "The Brett Bender status page",
+  "systems": {
+    "items": {
+      "web": {
+        "title": "Web Services",
+        "description": "Blog, Bugs, Billing"
+      },
+      "discord": {
+        "title": "Discord Services",
+        "description": "Vi, Bashbot"
+      }
+    }
+  }
+}
