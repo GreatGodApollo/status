@@ -2,8 +2,6 @@ backend:
   name: git-gateway
   branch: master # Branch to update (optional; defaults to master)
 
-publish_mode: editorial_workflow
-
 slug:
   encoding: "ascii"
   clean_accents: true
@@ -20,12 +18,12 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}.md"
     fields:
       - {label: "Title", name: "title", widget: "string", required: true}
-      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Description", name: "description", widget: "text", required: true}
       - {label: "Date", name: "date", widget: "datetime", required: true}
       - {label: "Modified", name: "modified", widget: "datetime", required: true}
       - {label: "Affected", widget: "select", name: "affectedsystems", min: 1, multiple: true, required: true, options: [{label: "Web Services", value: "web"}, {label: "Discord Services", value: "discord"}]}
       - {label: "Severity", name: "severity", widget: "select",  required: true, options: ["major-outage", "degraded-performance", "partial-outage", "under-maintenance"]}
-      - {label: "Scheduled For", name: "scheduled", widget: "datetime", default:  ""}
-      - {label: "Scheduled Duration", name: "duration", widget: "number", hint: "Minutes"}
-      - {label: "Resolved", name: "resolved", widget: "boolean"}
+      - {label: "Scheduled For", name: "scheduled", widget: "datetime", default:  "", required: false}
+      - {label: "Scheduled Duration", name: "duration", widget: "number", hint: "Minutes", required: false}
+      - {label: "Resolved", name: "resolved", widget: "boolean", required: false}
       - {label: "Body", name: "body", widget: "markdown", required: true}
