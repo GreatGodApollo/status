@@ -13,9 +13,11 @@ public_folder: "/assets/img"
 collections:
   - name: "incident"
     label: "Incident"
-    folder: "content/"
+    folder: "content"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}.md"
+    editor:
+      preview: false
     fields:
       - {label: "Title", name: "title", widget: "string", required: true}
       - {label: "Description", name: "description", widget: "text", required: true}
