@@ -1,0 +1,29 @@
+backend:
+  name: git-gateway
+  branch: master # Branch to update (optional; defaults to master)
+
+publish_mode: editorial_workflow
+
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "_"
+
+media_folder: "public/assets/img"
+public_folder: "/assets/img"
+
+collections:
+  - name: "incident"
+    label: "Incident"
+    folder: "content/"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}.md"
+    fields:
+      - {label: "Title", name: "title", widget: "string", required: true}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Date", name: "date", widget: "datetime", required: true}
+      - {label: "Affected", widget: "select", name: "affectedsystems", min: 1, multiple: true, required: true, options: [{label: "Web Services", value: "web"}, {label: "Discord Services", value: "discord"}]}
+      - {label: "Severity", name: "severity", widget: "select", min: 1, multiple: false, required: true, options: [{label: "Under Maintenance", name: "under-maintenance"}, {label: "Major Outage", name: "major-outage"}, {label: "Partial Outage", name: "partial-outage"}, {label: "Degraded Performance", name: "degraded-performance"}]}
+      - {label: "Scheduled For", name: "scheduled", widget: "datetime"}
+      - {label: "Scheduled Duration", name: "duration", widget: "number", hint: "Minutes"}
+      - {label: "Resolved", name: "resolved", widget: "boolean"}
